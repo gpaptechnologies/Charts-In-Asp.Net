@@ -1,0 +1,34 @@
+CREATE TABLE [dbo].[EmployeeMaster](
+	[EMPLOYEEID] [int] IDENTITY(1,1) NOT NULL,
+	[NAME] [nvarchar](50) NULL,
+	[DESIGNATION] [nvarchar](50) NULL,
+	[SALARY] [int] NULL,
+	[STATE] [nvarchar](50) NULL,
+	[COUNTRY] [nvarchar](50) NULL,
+ CONSTRAINT [PK_EmployeeMaster] PRIMARY KEY CLUSTERED 
+(
+	[EMPLOYEEID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+create proc [dbo].[usp_GetStates]
+as
+begin
+	select distinct state from dbo.EmployeeMaster
+end
+GO
+
+create proc [dbo].[usp_GetEmployeesByState]
+(
+@State varchar(50)
+)
+as
+begin
+	select state,count(state) as TotalStaff from dbo.EmployeeMaster
+	where state = (case when @State = 'ALL' THEN STATE ELSE @State END)
+	group by state
+end
+GO

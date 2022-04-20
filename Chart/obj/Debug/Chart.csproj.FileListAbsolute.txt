@@ -1,0 +1,5 @@
+C:\Users\Training\Documents\Training Projects\Chart\Chart\bin\Chart.dll.config
+C:\Users\Training\Documents\Training Projects\Chart\Chart\bin\Chart.dll
+C:\Users\Training\Documents\Training Projects\Chart\Chart\bin\Chart.pdb
+C:\Users\Training\Documents\Training Projects\Chart\Chart\obj\Debug\Chart.dll
+C:\Users\Training\Documents\Training Projects\Chart\Chart\obj\Debug\Chart.pdb
